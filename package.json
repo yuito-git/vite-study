@@ -1,0 +1,15 @@
+{
+  "name": "vite-study",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@macropygia/vite-plugin-pug-static": "^0.0.18",
+    "vite": "^4.1.0"
+  }
+}
