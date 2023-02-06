@@ -1,0 +1,27 @@
+{
+  "rules": {
+    "doctype": "always",
+    "deprecated-element": true,
+    "use-list": false,
+    "no-refer-to-non-existent-id": true,
+    "attr-duplication": true,
+    "disallowed-element": true,
+    "require-datetime": true,
+    "permitted-contents": true,
+    "no-empty-palpable-content": false,
+    "require-accessible-name": true,
+    "placeholder-label-option": true,
+    "deprecated-attr": true,
+    "landmark-roles": false,
+    "required-h1": true,
+    "label-has-control": false,
+    "id-duplication": true,
+    "required-element": true,
+    "invalid-attr": true,
+    "wai-aria": true,
+    "required-attr": true
+  },
+  "parser":{
+    ".(?:pug|jade)$": "@markuplint/pug-parser"
+  }
+}

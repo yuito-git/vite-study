@@ -1,4 +1,5 @@
-import '../scss/style.css'
-import javascriptLogo from '../images/javascript.svg'
-import { setupCounter } from './library/counter'
+import { setFillHeight } from "./library/setFillHeight";
 
+window.addEventListener("resize", () => {
+  setFillHeight();
+});
