@@ -6,7 +6,7 @@
   "scripts": {
     "html:lint": "markuplint \"src/**/{*.pug,*.html}\"",
     "style:lint": "stylelint \"src/**/*.scss\"",
-    "es:lint":"eslint \"src/**/*.js\"",
+    "es:lint": "eslint \"src/**/*.js\"",
     "lint": "npm run html:lint && npm run style:lint -- --fix && npm run es:lint -- --fix",
     "dev": "npm run lint && vite",
     "build": "npm run lint && vite build",
@@ -23,6 +23,7 @@
     "globule": "^1.3.4",
     "markuplint": "^3.2.0",
     "postcss-sort-media-queries": "^4.3.0",
+    "prettier": "^2.8.3",
     "sass": "^1.58.0",
     "stylelint": "^14.16.1",
     "stylelint-config-prettier": "^9.0.4",
