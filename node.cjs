@@ -17,3 +17,4 @@ documents.forEach((document) => {
 });
 
 console.log({ ...inputs })
+
