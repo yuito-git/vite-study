@@ -16,6 +16,10 @@ documents.forEach((document) => {
 
 export default defineConfig({
   root: "src",
+  server: {
+    host: true,
+    port: 3000
+  },
   build: {
     outDir: "../dist",
     emptyOutDir: true,
