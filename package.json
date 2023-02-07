@@ -6,7 +6,8 @@
   "scripts": {
     "html:lint": "markuplint \"src/**/{*.pug,*.html}\"",
     "style:lint": "stylelint \"src/**/*.scss\"",
-    "lint": "npm run html:lint && npm run style:lint -- --fix",
+    "es:lint":"eslint \"src/**/*.js\"",
+    "lint": "npm run html:lint && npm run style:lint -- --fix && npm run es:lint -- --fix",
     "dev": "npm run lint && vite",
     "build": "npm run lint && vite build",
     "preview": "npm run lint && vite preview"
@@ -16,6 +17,9 @@
     "@markuplint/pug-parser": "^3.2.0",
     "autoprefixer": "^10.4.13",
     "css-declaration-sorter": "^6.3.1",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "globule": "^1.3.4",
     "markuplint": "^3.2.0",
     "postcss-sort-media-queries": "^4.3.0",
