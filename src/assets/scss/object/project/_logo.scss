@@ -1,0 +1,10 @@
+@charset 'UTF-8';
+@use "sass:math";
+@use "../../global" as *;
+
+/*
+  Logo
+*/
+.p-logo {
+  $this: &;
+}

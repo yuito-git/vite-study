@@ -1,0 +1,12 @@
+@charset 'UTF-8';
+@use "sass:math";
+@use "../global" as *;
+
+/*
+  Container
+-----------------------------------------------------*/
+.l-container {
+  width: 90%;
+  max-width: $content-width;
+  margin: 0 auto;
+}

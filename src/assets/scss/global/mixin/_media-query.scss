@@ -1,0 +1,30 @@
+@charset 'UTF-8';
+@use "../setting" as *;
+@use "sass:map";
+@use "sass:math";
+
+//  Media Queries メディアクエリ
+//--------------------------------------------
+
+@mixin mq($breakpoint, $notOperator: false) {
+  //第一引数に、ブレイクポイント、第二引数にnot演算子使うかの指定
+  @if map-has-key($breakpoints, $breakpoint) {
+    //指定したキーが存在しているかどうか
+    @if ($notOperator==true) {
+      //not演算子で指定するとき
+      @media not all and (min-width: #{math.div(map.get($breakpoints,$breakpoint),16px) * 1em}) {
+        //$breakpointの幅を含まずそれより小さい幅の時適用
+        //【例】$breakpoint=1024pxの時、1024pxを含まずそれより小さい幅に対して適用,1023.999...pxから適用
+        //【参考】https://zenn.dev/tak_dcxi/articles/690caf6e9c4e26
+        @content;
+      }
+    } @else if($notOperator==false) {
+      @media screen and (min-width: #{math.div(map.get($breakpoints, $breakpoint),16px) *1em  }) {
+        //$breakpoint以上の幅の時
+        @content;
+      }
+    }
+  } @else {
+    @error "$breakpointsに #{$breakpoint}ってキーは無いよ! setting/_layout.scssを確認して!";
+  }
+}

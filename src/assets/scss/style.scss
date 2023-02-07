@@ -1,113 +1,60 @@
-:root {
-  background-color: #242424;
-  color: rgba(255, 255, 255, 0.87);
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  line-height: 1.5;
-  text-rendering: optimizelegibility;
+@charset 'UTF-8';
+@use "sass:math";
+@use "sass:meta";
 
-  color-scheme: light dark;
+/*
+ * ファイル名: style.css
+ * 内容： Vite StudyのCSSファイル
+ *
+ * ------- Table Of Contents -------
+ *
+ * 1.0 - Foundation： 初期設定
+ *    1.1 - Reset: ユーザエージェント設定のスタイルをリセット
+ *    1.2 - Base: ベーススタイル
+ *
+ * 2.0 - Layout： 配置
+ *
+ * 3.0 - Object: 繰り返されるビジュアルパターン
+ *    3.1 - Component: 繰り返し利用できる汎用的な部品
+ *
+ *    3.2 - Project: いくつかのComponentと要素によって構成される部品
+ *
+ *    3.3 - Utility: 僅かなスタイル調整のための便利クラス
+ *
+ * 4.0 - Media Queries: メディアクエリごとのスタイル
+ *
+*/
 
-  font-synthesis: none;
-  -webkit-text-size-adjust: 100%;
-}
+/* =====================================================
+  1.0 - Foundation
+===================================================== */
+//@useを使用すると、「1.0 - Foundation」などのコメント全てが@mediaよりも前に出力されてしまうため
+//参考：https://github.com/sass/dart-sass/issues/1033
+@include meta.load-css("foundation");
 
-a {
-  color: #646cff;
-  font-weight: 500;
-  text-decoration: inherit;
-}
+/* =====================================================
+  2.0 - Layout
+===================================================== */
+@include meta.load-css("layout");
 
-a:hover {
-  color: #535bf2;
-}
+/* =====================================================
+  3.0 - Object
+===================================================== */
 
-body {
-  display: flex;
-  min-width: 320px;
-  min-height: 100vh;
-  margin: 0;
-  place-items: center;
-}
+/*
+  3.1 - Component
+-----------------------------------------------------*/
+@include meta.load-css("object/component");
+/*
+  3.2 - Project
+-----------------------------------------------------*/
+@include meta.load-css("object/project");
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-
-  @media (max-width: 350px) {
-    margin: 1em;
-  }
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-
-  @media (max-width: 350px) {
-    justify-self: end;
-  }
-
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  padding: 0.6em 1.2em;
-  transition: border-color 0.25s;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  background-color: #1a1a1a;
-  font-family: inherit;
-  font-size: 1em;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    background-color: #fff;
-    color: #213547;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/*
+  3.2 - Utility
+-----------------------------------------------------*/
+@include meta.load-css(
+  "object/utility"
+) /* =====================================================
+  4.0 - Media Queries
+===================================================== */

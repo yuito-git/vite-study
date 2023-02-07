@@ -1,0 +1,64 @@
+@charset 'UTF-8';
+@use "sass:math";
+@use "../setting" as *;
+
+//  Size
+//--------------------------------------------
+
+// px -> remに変換
+@function pxToRem($size, $base-font-size: 16px) {
+  @return math.div($size, $base-font-size) * 1rem;
+}
+
+// px -> emに変換
+@function pxToEm($size, $base-font-size: 16px) {
+  @return math.div($size, $base-font-size) * 1em;
+}
+
+// px -> vwに変換
+@function pxToVw($size, $window-size: $sp-comp-width) {
+  @return math.div($size, $window-size) * 100vw;
+}
+
+//px -> vh に変換
+@function pxToVh($size, $window-size: $sp-comp-width) {
+  @return math.div($size, $window-size) * 100vh;
+}
+
+//*=======================================================
+//* clamp関数
+//*=======================================================
+
+// ====================================================================
+// example -> メインビジュアルのfont-sizeをなめらかに変更
+// .p-hero__title {
+//  min-height:.0001vw; Safariバグ用
+//  font-size:最大文字サイズ; //IE用
+//  font-size:clampVw(最小文字サイズ,最大文字サイズ,最小幅,最大幅);
+// }
+//====================================================================
+
+@function flexClamp($minY, $maxY, $minX: $sp-comp-width, $maxX: $pc-comp-width) {
+  //縦軸の最小値をrem換算
+  $minValY: pxToRem($minY);
+  //縦軸の最大値をrem換算
+  $maxValY: pxToRem($maxY);
+  // ===========================================================
+  // clampの中央値は一次関数 y = ax + bで求める
+  // a -> 傾き(変化の割合) = (垂直の増加量) / (水平方向の増加量);
+  // b -> 切片(y軸との交点) = 最小のサイズ - 傾き * 最小の横幅;
+  // y = a * 100vw + b
+  // 参考：https://sushirice.pro/css-store/297/
+  // 正直まだよく分かってない
+  // ===========================================================
+  //垂直方向の増加量
+  $verticalAmount: $maxY - $minY;
+  //水平方向の増加量
+  $horizontalAmount: $maxX - $minX;
+  //傾き(小数点以下を3桁まで)、math.round()は小数点以下を四捨五入する関数
+  $tilt: math.div(math.round(math.div($verticalAmount, $horizontalAmount) * 1000), 1000);
+  //切片
+  $intercept: pxToRem($minY - $tilt * $minX);
+  //結果
+  @return clamp(#{$minValY}, #{$tilt * 100vw} + #{$intercept}, #{$maxValY});
+}

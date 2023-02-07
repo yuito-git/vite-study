@@ -1,0 +1,17 @@
+@charset 'UTF-8';
+@use "sass:math";
+@use "../../global" as *;
+
+/*
+  Button
+*/
+.c-button {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
+}
