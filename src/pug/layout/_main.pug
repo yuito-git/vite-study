@@ -1,0 +1,19 @@
+//- 設定ファイルの読み込み
+block config
+  include ../setting/_config
+
+doctype html
+html(lang="ja")
+  head
+    block head
+      include ../setting/_head
+
+  body
+    include ../component/_header
+
+    main#main.l-main.p-main
+      block mainContent
+
+    include ../component/_footer
+
+    block script

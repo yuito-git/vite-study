@@ -1,0 +1,7 @@
+mixin globalNav(items, current)
+  ul.p-globalNav
+    each item in items
+      - let isCurrent = false;
+      if current == item.path
+        - isCurrent = true;
+      li: a(href=item.path, class= isCurrent ? 'is-active' : '') #{item.name}

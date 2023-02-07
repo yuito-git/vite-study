@@ -1,12 +1,28 @@
-doctype html
-html(lang="ja")
-  head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
-    link(rel="stylesheet", href="/assets/scss/style.scss")
-    script(src="/assets/js/main.js" type="module")
-  body
-    h1 Vite Study
-    img(src="/assets/images/javascript.svg", alt="")
+extends ./pug/layout/_main
+
+block append config
+  //- ===========================================
+  //-   ページの設定
+  //- ===========================================
+
+
+block append head
+  //- ===========================================
+  //-   ページ用のスタイルやスクリプト
+  //- ===========================================
+
+
+block mainContent
+  //- ===========================================
+  //-   メインコンテンツ
+  //- ===========================================
+  .p-hero
+    .l-container
+      p.p-hero__title Vite Study
+      img(src="/assets/images/javascript.svg", alt="")
+
+  section.l-spacer
+    .l-container
+      h2.c-heading The First Section
+
+block script

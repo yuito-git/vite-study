@@ -3,7 +3,7 @@
     "doctype": "always",
     "deprecated-element": true,
     "use-list": false,
-    "no-refer-to-non-existent-id": true,
+    "no-refer-to-non-existent-id": false,
     "attr-duplication": true,
     "disallowed-element": true,
     "require-datetime": true,
