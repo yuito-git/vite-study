@@ -3,6 +3,7 @@ import path from "path";// https://nodejs.org/api/path.html
 import globule from "globule"; // https://www.npmjs.com/package/globule
 import vitePluginPugStatic from "@macropygia/vite-plugin-pug-static";
 import viteImagemin from "vite-plugin-imagemin";
+import browserslistToEsbuild from "browserslist-to-esbuild";
 
 const inputs = {};
 const documents = globule.find([`./src/**/*.html`, `./src/**/*.pug`], {
@@ -20,9 +21,15 @@ export default defineConfig({
     host: true,
     port: 3000
   },
+  esbuild: {
+    supported: {
+      "top-level-await": true
+    }
+  },
   build: {
     outDir: "../dist",
     emptyOutDir: true,
+    target: browserslistToEsbuild(),
     minify: false,
     rollupOptions: {
       input: { ...inputs },
