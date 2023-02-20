@@ -5,6 +5,7 @@ import eslint from "@nabla/vite-plugin-eslint";
 import vitePluginPugStatic from "@macropygia/vite-plugin-pug-static";
 import viteImagemin from "vite-plugin-imagemin";
 import browserslistToEsbuild from "browserslist-to-esbuild";
+import checker from "vite-plugin-checker";
 
 const inputs = {};
 const documents = globule.find([`./src/**/*.html`, `./src/**/*.pug`], {
@@ -54,6 +55,9 @@ export default defineConfig({
       eslintOptions: {
         fix: true,
       }
+    }),
+    checker({
+      typescript: true,
     }),
 
     vitePluginPugStatic({

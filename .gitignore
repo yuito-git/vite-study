@@ -13,6 +13,7 @@ dist-ssr
 *.local
 .env
 .stylelintcache
+.eslintcache
 # Editor directories and files
 !.vscode/extensions.json
 .idea
