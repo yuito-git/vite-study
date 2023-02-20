@@ -1,38 +1,14 @@
 {
-  "env": {
-    "browser": true,
-    "jquery": true,
-    "node": true,
-    "es6": true,
-    "es2021": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:prettier/recommended"
-  ],
-  "plugins": [
-    "prettier"
-  ],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "rules": {
-    "semi": [
-      "error",
-      "always",
-      {
-        "omitLastInOneLineBlock": true
-      }
-    ],
-    "prettier/prettier": "error",
-    "no-extra-semi": "warn",
-    "no-undef": "warn",
-    "space-before-blocks": [
-      "warn",
-      {
-        "functions": "always"
-      }
-    ]
-  }
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": "standard-with-typescript",
+    "overrides": [],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "rules": {}
 }

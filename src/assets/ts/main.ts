@@ -1,5 +1,5 @@
-import { setFillHeight } from "./library/setFillHeight";
+import { setFillHeight } from './library/setFillHeight'
 
-window.addEventListener("resize", () => {
-  setFillHeight();
-});
+window.addEventListener('resize', () => {
+  setFillHeight()
+})
