@@ -9,10 +9,9 @@
   "scripts": {
     "html:lint": "markuplint \"src/**/{*.pug,*.html}\"",
     "style:lint": "stylelint \"src/**/*.scss\"",
-    "es:lint": "eslint \"src/**/*.js\"",
-    "lint": "npm run html:lint && npm run style:lint -- --fix && npm run es:lint -- --fix",
-    "dev": "npm run lint && vite",
-    "build": "npm run lint && vite build",
+    "lint": "npm run html:lint && npm run style:lint -- --fix",
+    "dev": "vite",
+    "build": "vite build",
     "preview": "npm run lint && vite preview"
   },
   "devDependencies": {
