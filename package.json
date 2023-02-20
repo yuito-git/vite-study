@@ -18,6 +18,7 @@
   "devDependencies": {
     "@macropygia/vite-plugin-pug-static": "^0.0.18",
     "@markuplint/pug-parser": "^3.2.0",
+    "@nabla/vite-plugin-eslint": "^1.5.0",
     "autoprefixer": "^10.4.13",
     "browserslist-to-esbuild": "^1.2.0",
     "css-declaration-sorter": "^6.3.1",

@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import path from "path";// https://nodejs.org/api/path.html
 import globule from "globule"; // https://www.npmjs.com/package/globule
+import eslint from "@nabla/vite-plugin-eslint";
 import vitePluginPugStatic from "@macropygia/vite-plugin-pug-static";
 import viteImagemin from "vite-plugin-imagemin";
 import browserslistToEsbuild from "browserslist-to-esbuild";
@@ -49,6 +50,11 @@ export default defineConfig({
     }
   },
   plugins: [
+    eslint({
+      eslintOptions: {
+        fix: true,
+      }
+    }),
 
     vitePluginPugStatic({
       buildOptions: { basedir: "src" },
